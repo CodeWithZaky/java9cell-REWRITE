@@ -5,10 +5,12 @@ import { type AppType } from "next/app";
 
 import { api } from "@/utils/api";
 
-import Navbar from "@/components/navbar";
+import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import "@/styles/globals.css";
 import clsx from "clsx";
+
+import { Toaster } from "@/components/ui/toaster";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -25,12 +27,14 @@ const MyApp: AppType<{ session: Session | null }> = ({
         <main
           className={clsx(
             GeistSans.className,
-            "container flex min-h-screen flex-col",
+            "flex min-h-screen w-full flex-col",
           )}
         >
-          <Navbar />
+          {/* <Navbar /> */}
+          <Header />
           <Component {...pageProps} />
         </main>
+        <Toaster />
       </ThemeProvider>
     </SessionProvider>
   );

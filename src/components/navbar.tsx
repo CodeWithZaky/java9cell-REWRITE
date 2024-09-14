@@ -32,7 +32,7 @@ const Navbar = () => {
             </Link>
           ))}
           <ModeToggle />
-          <Avatar />
+          <Avatar image="https://github.com/shadcn" alt="cn" />
         </div>
         <div className="block md:hidden">
           <Sidebar />
