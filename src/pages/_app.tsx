@@ -17,26 +17,27 @@ const MyApp: AppType<{ session: Session | null }> = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <SessionProvider session={session}>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-      >
-        <main
-          className={clsx(
-            GeistSans.className,
-            "flex min-h-screen w-full flex-col",
-          )}
+    <>
+      <SessionProvider session={session}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
         >
-          {/* <Navbar /> */}
-          <Header />
-          <Component {...pageProps} />
-        </main>
-        <Toaster />
-      </ThemeProvider>
-    </SessionProvider>
+          <main
+            className={clsx(
+              GeistSans.className,
+              "flex min-h-screen w-full flex-col",
+            )}
+          >
+            <Header />
+            <Component {...pageProps} />
+          </main>
+        </ThemeProvider>
+      </SessionProvider>
+      <Toaster />
+    </>
   );
 };
 
