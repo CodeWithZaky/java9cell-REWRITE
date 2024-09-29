@@ -58,7 +58,7 @@ export default function Search() {
           )}
         />
         <Button type="submit">
-          <LuSearch />
+          <LuSearch className="text-lg" />
         </Button>
       </form>
     </Form>
