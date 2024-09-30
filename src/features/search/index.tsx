@@ -50,7 +50,7 @@ export default function Search() {
               <FormControl>
                 <Input
                   placeholder="search product"
-                  className="w-[400px]"
+                  className="w-[500px]"
                   {...field}
                 />
               </FormControl>
