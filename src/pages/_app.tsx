@@ -28,7 +28,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
           <main
             className={clsx(
               GeistSans.className,
-              "flex min-h-screen w-full flex-col",
+              "mx-auto flex min-h-screen w-[60%] flex-col",
             )}
           >
             <Header />
