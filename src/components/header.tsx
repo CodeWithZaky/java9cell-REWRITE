@@ -2,26 +2,38 @@ import Search from "@/features/search";
 import Link from "next/link";
 import { LuShoppingCart } from "react-icons/lu";
 import { Avatar } from "./avatar";
+import { Button } from "./ui/button";
+
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const Header = () => {
+  const session = useSession();
   return (
-    <div className="flex flex-col items-center mb-4 border-b w-full">
-      <div className="flex justify-between items-center p-4 w-full">
+    <div className="mb-7 mt-5 flex w-full flex-col items-center">
+      <div className="flex w-full items-center justify-between p-4">
         <div>
           <Link href="/">JAVA9CELL</Link>
         </div>
-        <div className="flex justify-end items-center gap-7">
+        <Search />
+        <div className="flex items-center justify-end gap-7">
           <div className="relative">
             <LuShoppingCart className="text-3xl" />
-            <p className="-top-2 -right-3 absolute border-2 bg-foreground px-1 border-background rounded-full text-background text-sm">
+            <p className="absolute -right-3 -top-2 rounded-full border-2 border-background bg-foreground px-1 text-sm text-background">
               99
             </p>
           </div>
-          <Avatar image="https://github.com/shadcn.png" alt="cn" />
+          {session.status === "unauthenticated" ? (
+            <div className="flex gap-3">
+              <Avatar image="https://github.com/shadcn.png" alt="cn" />
+              <Button onClick={() => signOut()}>Logout</Button>
+            </div>
+          ) : (
+            <div className="space-x-3">
+              <Button onClick={() => signIn()}>Login</Button>
+              <Button variant={"outline"}>Register</Button>
+            </div>
+          )}
         </div>
-      </div>
-      <div className="flex justify-center py-4 w-full">
-        <Search />
       </div>
     </div>
   );

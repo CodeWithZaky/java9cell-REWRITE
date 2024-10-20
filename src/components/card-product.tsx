@@ -10,7 +10,7 @@ const CardProduct = () => {
       <Image src={KardusBekas} alt="gambar" />
       <div className="space-y-1 text-wrap px-2 text-sm">
         <p>{title.length > 30 ? title.slice(0, 30) + "..." : title}</p>
-        <p className="text-yellow-400">Rp1.500</p>
+        <p className="text-green-700">Rp1.500</p>
         <div className="flex justify-between">
           <p className="rounded-md border bg-primary px-2 text-background">
             +cart
